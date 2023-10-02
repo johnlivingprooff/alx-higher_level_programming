@@ -1,0 +1,6 @@
+#!/bin/bash
+python3 -m py_compile $PYFILE
+echo "Compiling main.py ..."
+file="${PYFILE%py}cpython-310.pyc"
+mv __pycache__/${file} ${PYFILE}c
+rm -rf __pycache__/

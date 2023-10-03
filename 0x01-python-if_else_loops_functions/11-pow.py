@@ -6,5 +6,5 @@ def pow(a, b):
             res *= a
             b -= 1
     else:
-        res = 1.0 / pow(a, -b)
+        res = 1 / pow(a, -b)
     return res

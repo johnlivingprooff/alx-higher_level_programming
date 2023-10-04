@@ -18,19 +18,20 @@ listint_t *insert_node(listint_t **head, int number)
 	}
 	new->n = number;
 	new->next = NULL;
-	/* where the list is empty */
-	if (*head == NULL)
-		*head = new;
-	/* where new.n is the first number on the list */
-	if (number < (*head)->n)
+
+	/* where the list is empty or new.n is the first number on the list */
+	if (*head == NULL || number < (*head)->n)
 	{
 		new->next = *head;
 		*head = new;
+		return (new);
 	}
+
 	/* Travers the list to get the correct position of new.n */
 	current = *head;
 	while (current->next != NULL && current->next->n < number)
 		current = current->next;
+
 	new->next = current->next;
 	current->next = new;
 	return (new);

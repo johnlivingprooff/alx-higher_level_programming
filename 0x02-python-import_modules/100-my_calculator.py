@@ -23,4 +23,4 @@ if __name__ == "__main__":
             print("Unknown operator. Available operators: +, -, * and /")
             sys.exit(1)
 
-        print(f"{a} {op} {b} = {result}")
+    print("{} {} {} = {}".format(a, op, b, result))

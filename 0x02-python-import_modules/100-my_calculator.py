@@ -10,18 +10,17 @@ if __name__ == "__main__":
     a, op, b = sys.argv[1], sys.argv[2], sys.argv[3]
     a, b = int(a), int(b)
     result = None
-
-    match op:
-        case "+":
-            result = add(a, b)
-        case "*":
-            result = mul(a, b)
-        case "-":
-            result = sub(a, b)
-        case "/":
-            result = div(a, b)
-        case _:
-            print("Unknown operator. Available operators: +, -, * and /")
-            sys.exit(1)
+    
+    if op == "+":
+        result = add(a, b)
+    elif op == "-":
+        result = sub(a, b)
+    elif op == "*":
+        result = mul(a, b)
+    elif op == "/":
+        result = div(a, b)
+    else:
+        print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
 
     print("{} {} {} = {}".format(a, op, b, result))

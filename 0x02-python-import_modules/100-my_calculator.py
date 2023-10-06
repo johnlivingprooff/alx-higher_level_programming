@@ -10,7 +10,7 @@ if __name__ == "__main__":
     a, op, b = sys.argv[1], sys.argv[2], sys.argv[3]
     a, b = int(a), int(b)
     result = None
-    
+
     if op == "+":
         result = add(a, b)
     elif op == "-":

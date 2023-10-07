@@ -8,5 +8,5 @@ def max_integer(my_list=[]):
     for x in my_list:
         if x > maxi:
             maxi = x
-        
+
     return maxi

@@ -10,7 +10,7 @@ int is_palindrome(listint_t **head)
 	listint_t *slow, *fast, *prev = NULL, *current = *head, *nex = NULL;
 	listint_t *firstHalf, *secondHalf;
 
-	if (*head == NULL)
+	if (*head == NULL || (*head)->next != NULL)
 		return (1);
 
 	slow = *head;
@@ -41,5 +41,5 @@ int is_palindrome(listint_t **head)
 		secondHalf = secondHalf->next;
 	}
 
-	return (1);
+	return (1); /* a palindrome list */
 }

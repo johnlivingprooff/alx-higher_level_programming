@@ -14,7 +14,7 @@ int is_palindrome(listint_t **head)
 		return (1); /* empty list is palindrome */
 
 	if ((*head)->next == NULL)
-		return (1); /* not a palindrome */
+		return (0); /* not a palindrome */
 
 	slow = *head;
 	fast = *head;

@@ -13,9 +13,6 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL)
 		return (1); /* empty list is palindrome */
 
-	if ((*head)->next != NULL)
-		return (0); /* list with one element is not palindrome */
-
 	slow = *head;
 	fast = *head;
 	/* finding the middle of l-list */

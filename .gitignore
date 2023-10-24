@@ -1,2 +1,4 @@
 git.sh
 test/
+main.py
+__pycache__

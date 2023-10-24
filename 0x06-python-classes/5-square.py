@@ -1,10 +1,15 @@
 #!/usr/bin/python3
 """A group of functions that define a square class"""
+
+
 class Square:
-    """This Class represents a square
-    it is defined in ...
-    """
+    """This Class represents a square"""
     def __init__(self, size=0):
+        """Initialize the Square
+
+        Args:
+            size (int): size of the Square (length of one side)
+        """
         self.size = size
 
     @property
@@ -21,10 +26,12 @@ class Square:
 
     # define the area method
     def area(self):
+        """returns the area of the square"""
         return self.size**2
 
     # printing the square with '#'
     def my_print(self):
+        """prints the square with '#'"""
         if self.size == 0:
             print()
         i, j = 0, 0

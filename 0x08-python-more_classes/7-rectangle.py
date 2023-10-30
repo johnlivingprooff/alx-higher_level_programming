@@ -13,7 +13,7 @@ class Rectangle:
     """
 
     number_of_instances = 0
-    print_symbol = "#"
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         type(self).number_of_instances += 1
@@ -60,14 +60,9 @@ class Rectangle:
         """returns the printable representation of Rectancle"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        txt = ""
-        for i in range(self.__height):
-            for j in range(self.__width):
-                txt += str(type(self).print_symbol)
-            if i != self.__height - 1:
-                txt += '\n'
-
-        return txt
+        
+        row = [str(type(self).print_symbol) * self.__width]
+        return '\n'.join(row * self.__height)
 
     def __repr__(self):
         return f"Rectangle({self.__width}, {self.__height})"

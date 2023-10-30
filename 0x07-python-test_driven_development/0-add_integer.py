@@ -10,7 +10,7 @@ def add_integer(a, b=98):
     """Returns the sum of two integers
     Args: a (int): integer
           b (int): integer"""
-    
+
     if isinstance(a, float):
         """if a is a float"""
         a = int(a)

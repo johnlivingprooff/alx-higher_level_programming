@@ -1,0 +1,21 @@
+Module: test_indentation
+
+Usage: text_indentation(text)
+Test Cases:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation(""" This is. Africa? Yes: No""")
+    This is.
+    <BLANKLINE>
+    Africa?
+    <BLANKLINE>
+    Yes:
+    <BLANKLINE>
+    No
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+    >>> text_indentation(10)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string

@@ -60,7 +60,7 @@ class Rectangle:
         """returns the printable representation of Rectancle"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        
+
         row = [str(type(self).print_symbol) * self.__width]
         return '\n'.join(row * self.__height)
 

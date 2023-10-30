@@ -18,7 +18,9 @@ def text_indentation(text):
 
     delimiter = [':', '?', '.']
     for char in delimiter:
-        text = (char + '\n\n').join(
+        """text = (char + '\n\n').join(
             [row.strip() for row in text.split(char)]
-        )
-    print(text)
+        )"""
+        text = text.replace(char + " ", char)
+        text = text.replace(char, char + '\n\n')
+    print(text.strip())

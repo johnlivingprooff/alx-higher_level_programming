@@ -5,7 +5,12 @@ A class that defines a Rectangle
 
 
 class Rectangle:
-    """The class represents a Rectangle"""
+    """The class represents a Rectangle
+
+    Attributes:
+        number_of_instances (int): the number of instances of the class
+        print_symbol(str): the print symbol
+    """
 
     number_of_instances = 0
     print_symbol = "#"
@@ -13,7 +18,7 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -43,28 +48,29 @@ class Rectangle:
 
     def area(self):
         """returns the area of the Rectangle"""
-        return self.height * self.width
+        return self.__height * self.__width
 
     def perimeter(self):
         """returns the perimeter"""
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return 0
-        return 2 * (self.height * self.width)
+        return 2 * (self.__height * self.__width)
 
     def __str__(self):
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
         txt = ""
-        for i in range(self.height):
-            for j in range(self.width):
-                txt += Rectangle.print_symbol
-            txt += '\n'
+        for i in range(self.__height):
+            for j in range(self.__width):
+                txt += type(self).print_symbol
+            if i != self.__height - 1:
+                txt += '\n'
 
         return txt
 
     def __repr__(self):
-        return f"Rectangle({self.width}, {self.height})"
+        return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        Rectangle.number_of_instances -= 1
+        type(self).number_of_instances -= 1
         print("Bye rectangle...")

@@ -18,3 +18,6 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_negativeInt(self):
         self.assertEqual(max_integer([-1, -10, -5, 0, -45]), 0)
+
+if __name__ == '__main__':
+    unittest.main()

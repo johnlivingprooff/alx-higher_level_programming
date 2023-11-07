@@ -3,9 +3,7 @@
 
 
 class BaseGeometry:
-
-	def __init__(self):
-		pass
-
-	def area(self):
-		raise Exception("area() is not implemented")
+    """this class has a public method"""
+    def area(self):
+        """should calculate the area or raise Exception"""
+        raise Exception("area() is not implemented")

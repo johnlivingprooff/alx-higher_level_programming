@@ -3,6 +3,5 @@
 
 
 class BaseGeometry:
-
-    def __init__(self):
-        pass
+    """the base class"""
+    pass

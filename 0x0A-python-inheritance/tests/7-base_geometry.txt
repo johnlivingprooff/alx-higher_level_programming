@@ -1,0 +1,35 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> shape = BaseGeometry()
+>>> shape.integer_validator(5, "string")
+Traceback (most recent call last):
+    ...
+TypeError: 5 must be an integer
+>>> shape.integer_validator("size", 25)
+>>> shape.integer_validator("word", "text")
+Traceback (most recent call last):
+    ...
+TypeError: word must be an integer
+>>> shape.integer_validator("word", 12.65)
+Traceback (most recent call last):
+    ...
+TypeError: word must be an integer
+>>> shape.integer_validator("less", -5)
+Traceback (most recent call last):
+    ...
+ValueError: less must be greater than 0
+>>> shape.integer_validator("infiniteplus", float('inf'))
+Traceback (most recent call last):
+    ...
+TypeError: infiniteplus must be an integer
+>>> shape.integer_validator("infiniteminus", float('-inf'))
+Traceback (most recent call last):
+    ...
+TypeError: infiniteminus must be an integer
+>>> shape.integer_validator("None", None)
+Traceback (most recent call last):
+    ...
+TypeError: None must be an integer
+>>> shape.integer_validator("empty", "")
+Traceback (most recent call last):
+    ...
+TypeError: empty must be an integer

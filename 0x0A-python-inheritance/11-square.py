@@ -33,7 +33,7 @@ class Rectangle(BaseGeometry):
                                    self.__width, self.__height)
 
 
-class Square(BaseGeometry):
+class Square(Rectangle):
     """its child two"""
     def __init__(self, size):
         self.integer_validator("size", size)

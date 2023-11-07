@@ -3,7 +3,7 @@
 
 
 class BaseGeometry:
-
+    """base class"""
     def __init__(self):
         pass
 
@@ -18,7 +18,7 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-
+    """child of BaseG"""
     def __init__(self, width, height):
         self.integer_validator("width", width)
         self.integer_validator("height", height)
@@ -33,7 +33,7 @@ class Rectangle(BaseGeometry):
                                    self.__width, self.__height)
 
 
-class Square(BaseGeometry):
+class Square(Rectangle):
 
     def __init__(self, size):
         self.integer_validator("size", size)

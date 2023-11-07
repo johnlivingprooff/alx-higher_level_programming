@@ -29,7 +29,8 @@ class Rectangle(BaseGeometry):
         return self.__width * self.__height
 
     def __str__(self):
-        return "[{}] {}/{}".format(type(self).__name__, self.__width, self.__height)
+        return "[{}] {}/{}".format(type(self).__name__,
+                                   self.__width, self.__height)
 
 
 class Square(BaseGeometry):
@@ -43,4 +44,4 @@ class Square(BaseGeometry):
 
     def __str__(self):
         return "[{}] {}/{}".format(type(self).__name__,
-                             self.__size, self.__size)
+                                   self.__size, self.__size)

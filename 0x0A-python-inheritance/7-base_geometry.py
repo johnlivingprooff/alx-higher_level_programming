@@ -4,8 +4,6 @@
 
 class BaseGeometry:
     """this class has  public method"""
-    def __init__(self):
-        pass
 
     def area(self):
         """should calculate the area or raise Exception"""
@@ -13,7 +11,7 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """validated the integer"""
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("{:s} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{:s} must be greater than 0".format(name))

@@ -20,4 +20,3 @@ class Student:
                     for attr in attrs if hasattr(self, attr)}
         else:
             return self.__dict__
-        

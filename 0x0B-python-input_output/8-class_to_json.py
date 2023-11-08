@@ -20,9 +20,10 @@ def class_to_json(obj):
         # where obj is a dict
         elif isinstance(data, dict):
             return {str(key): serialize(item) for key, item in data.items()}
-        elif isinstance(data, '__dict__'):
+        elif hasattr(data, '__dict__'):
             return {str(key): serialize(item)
                     for key, item in data.__dict__.items()}
         else:
             return None
+
     return serialize(obj)

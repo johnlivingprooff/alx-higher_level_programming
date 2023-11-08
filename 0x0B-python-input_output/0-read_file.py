@@ -6,5 +6,4 @@ and prints it to stdout"""
 def read_file(filename=""):
     """opens and reads a file"""
     with open(filename, encoding="UTF-8") as f:
-        file_content = f.read()
-    print(file_content)
+        print(f.read(), end="")

@@ -6,6 +6,8 @@ representing the Pascal’s triangle of n:"""
 
 
 def pascal_triangle(n):
+    """this function returns a list of lists
+    of integers, with the pascal triangle algthm"""
     if n <= 0:
         return []
 

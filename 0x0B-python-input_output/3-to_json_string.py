@@ -7,4 +7,3 @@ def to_json_string(my_obj):
     """writes a JSON representation"""
     import json
     return json.dump(my_obj)
-

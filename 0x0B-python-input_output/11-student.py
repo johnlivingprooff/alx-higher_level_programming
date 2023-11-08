@@ -20,7 +20,7 @@ class Student:
                     for attr in attrs if hasattr(self, attr)}
         else:
             return self.__dict__
-    
+
     def reload_from_json(self, json):
         """replaces class attributes with json"""
         if not json:

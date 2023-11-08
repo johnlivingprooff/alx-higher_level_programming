@@ -6,4 +6,5 @@ of an object (string)"""
 def to_json_string(my_obj):
     """writes a JSON representation"""
     import json
-    return json.dump(my_obj)
+    text = json.dumps(my_obj)
+    return text

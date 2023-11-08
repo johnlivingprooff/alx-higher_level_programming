@@ -8,6 +8,7 @@ def class_to_json(obj):
     """implement a recursive serialization"""
     if not isinstance(obj, object):
         return None
+
     def serialize(data):
         """a recursive approach to serialization"""
         # the main core of the function

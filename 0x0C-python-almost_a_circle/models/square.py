@@ -36,14 +36,7 @@ class Square(Rectangle):
                 self.y = args[4]
         elif kwargs is not None:
             for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                if key == "size":
-                    self.size = value
-                if key == "x":
-                    self.x = value
-                if key == "y":
-                    self.y = value
+                setattr(self, key, value)
 
     def to_dictionary(self):
         sq_dict = {"id":self.id, "size":self.size,

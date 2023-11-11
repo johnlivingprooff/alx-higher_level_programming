@@ -104,17 +104,8 @@ class Rectangle(Base):
                 self.__y = args[4]
         elif kwargs is not None:
             for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                if key == "width":
-                    self.__width = value
-                if key == "height":
-                    self.__height = value
-                if key == "x":
-                    self.__x = value
-                if key == "y":
-                    self.__y = value
-        
+                setattr(self, key, value)
+
     def to_dictionary(self):
         rect_dict = {"id":self.id, "width":self.__width,
                      "height":self.__height, "x":self.__x, "y":self.__y}

@@ -36,6 +36,23 @@ class Base:
                 json_str = cls.to_json_string(list_dict)
                 file.write(json_str)
 
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serializes a list of objs to CSV"""
+        filename = cls.__name__ + ".csv"
+        if cls.__name__ == "Rectangle":
+            attrs = ('id', 'width', 'height', 'x', 'y')
+        elif cls.__name__ == "Square":
+            attrs = ('id', 'size', 'x', 'y')
+        with open(filename, "w", encoding="utf-8") as file:
+            if list_objs is None:
+                file.write("")
+            else:
+                for obj in list_objs:
+                    csv_val = [str(getattr(obj, attr)) for attr in attrs]
+                    file.write(",".join(csv_val))
+                    file.write("\n")
+    
     def from_json_string(json_string):
         import json
         if json_string is None:
@@ -72,4 +89,24 @@ class Base:
         except FileNotFoundError:
             return []
 
+    @classmethod
+    def load_from_file_csv(cls):
+        filename = f"{cls.__name__}.csv"
+
+        try:
+            with open(filename, "r", encoding="utf-8") as file:
+                cont = file.read()
+                if not cont:
+                    return []
+                
+                list_objs = []
+                for row in cont.split("\n"):
+                    args = row.split(",")
+                    if args[0]:  # Check if the first element is not an empty string
+                        obj = cls(1, 1)
+                        obj.update(**{f"{k}": int(v) for k, v in enumerate(args)})
+                        list_objs.append(obj)
+                return list_objs
+        except FileNotFoundError:
+            return []
 

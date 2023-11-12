@@ -2,6 +2,7 @@
 """This module contains Test Cases for
 Project Almost a Circle"""
 import unittest
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -9,6 +10,21 @@ from models.square import Square
 
 class TestBase(unittest.TestCase):
     """tests for base class"""
+    @classmethod
+    def tearDown(self):
+        try:
+            os.remove("Rectangle.json")
+        except IOError:
+            pass
+        try:
+            os.remove("Square.json")
+        except IOError:
+            pass
+        try:
+            os.remove("Base.json")
+        except IOError:
+            pass
+
     def test_create(self):
         obj = Base()
         obj2 = Base(5)

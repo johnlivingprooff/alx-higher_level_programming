@@ -47,6 +47,25 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(inst.y, 2)
 
+    def test_update_args(self):
+        obj = Rectangle(10, 5, 4, 4, 2)
+        obj.update()
+
+        self.assertEqual("[Rectangle] (2) 4/4 - 10/5", str(obj))
+
+    def test_update_kwargs(self):
+        obj = Rectangle(10, 6)
+        obj.update(width=5, id=4)
+
+        self.assertEqual("[Rectangle] (4) 0/0 - 5/6", str(obj))
+
+    def test_to_dictionary(self):
+        obj = Rectangle(15, 45, 2, 2, 10)
+        a_dict = obj.to_dictionary()
+
+        self.assertEqual(a_dict, {"width":15, "height":45,
+                                  "x":2, "y":2, "id":10})
+
 
 if __name__ == "__main__":
     unittest.main()

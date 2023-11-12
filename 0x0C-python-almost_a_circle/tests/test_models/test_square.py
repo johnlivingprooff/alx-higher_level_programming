@@ -50,6 +50,24 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square(5, None)
 
+    def test_update_args(self):
+        obj = Square(5, 4, 5, 10)
+        obj.update()
+
+        self.assertEqual("[Square] (10) 4/5 - 5", str(obj))
+
+    def test_update_kwargs(self):
+        obj = Square(10)
+        obj.update(size=5, id=4)
+
+        self.assertEqual("[Square] (4) 0/0 - 5", str(obj))
+
+    def test_to_dictionary(self):
+        obj = Square(15, 2, 2, 10)
+        a_dict = obj.to_dictionary()
+
+        self.assertEqual(a_dict, {"size":15, "x":2, "y":2, "id":10})
+
 
 if __name__ == "__main__":
     unittest.main()

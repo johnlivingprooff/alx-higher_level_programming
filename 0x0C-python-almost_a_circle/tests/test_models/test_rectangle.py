@@ -1,24 +1,41 @@
 #!/usr/bin/python3
 """This module contains Test Cases for
-Project Almost a Circle"""
+models/rectangle.py"""
 import unittest
 from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
     """property evaluation"""
-    def test_width_is_int(self):
-        inst = Rectangle(4, 6)
+    def test_no_args(self):
+        with self.assertRaises(TypeError):
+            Rectangle()
 
-        self.assertEqual(inst.width, 4)
+    def test_one_arg(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1)
 
-        with self.assertRaises(ValueError):
-            Rectangle(4.5, 8)
-
-    def test_height_is_int(self):
+    def test_width(self):
         inst = Rectangle(4, 6)
 
         self.assertEqual(inst.height, 6)
+        with self.assertRaises(TypeError):
+            Rectangle(4.5, 6)
+        with self.assertRaises(ValueError):
+            Rectangle(-5, 6)
+        with self.assertRaises(TypeError):
+            Rectangle(float('inf'), 5)
+
+    def test_height(self):
+        inst = Rectangle(4, 6)
+
+        self.assertEqual(inst.height, 6)
+        with self.assertRaises(TypeError):
+            Rectangle(6, 4.5)
+        with self.assertRaises(ValueError):
+            Rectangle(6, -5)
+        with self.assertRaises(TypeError):
+            Rectangle(4, float('inf'))
 
     def test_x_int(self):
         inst = Rectangle(4, 6, 2, 2)

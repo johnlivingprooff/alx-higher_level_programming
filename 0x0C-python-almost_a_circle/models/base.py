@@ -118,6 +118,7 @@ class Base:
 
         for rect in list_rectangles:
             shape.pencolor("Blue")
+            shape.width(5)
             shape.penup()
             shape.goto(rect.x, rect.y)
             shape.pendown()

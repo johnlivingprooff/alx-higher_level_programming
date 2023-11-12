@@ -33,11 +33,11 @@ class TestBase(unittest.TestCase):
         obj5 = Base(None)
         obj6 = Base(-9)
 
-        self.assertEqual(obj.id, 11)
+        self.assertEqual(obj.id, 14)
         self.assertEqual(obj2.id, 5)
         self.assertEqual(obj3.id, 2)
         self.assertEqual(obj4.id, 5.8)
-        self.assertEqual(obj5.id, 12)
+        self.assertEqual(obj5.id, 15)
         self.assertEqual(obj6.id, -9)
 
     def test_to_json_string(self):
@@ -53,11 +53,10 @@ class TestBase(unittest.TestCase):
 
 class BaseTest_file(unittest.TestCase):
     """checks file operaion"""
-    def test_save_load_file_rectangle(self):
+    def test_save_file_rectangle(self):
         obj = Rectangle(4, 6)
         obj1 = Rectangle(10, 25)
-        obj2 = Rectangle(15, 4)
-
+        
         Rectangle.save_to_file([obj, obj1])
         with open("Rectangle.json", "r") as f:
             content = f.read()
@@ -67,12 +66,15 @@ class BaseTest_file(unittest.TestCase):
             content = file.read()
             self.assertEqual(content, '[]')
 
+    def test_load_file_rectangle(self):
+        obj1 = Rectangle(10, 25)
+        obj2 = Rectangle(15, 4)
         Rectangle.save_to_file([obj1, obj2])
         instance = Rectangle.load_from_file()
 
         self.assertEqual(len(instance), 2)
-        self.assertEqual(instance[0].id, 2)
-        self.assertEqual(instance[1].id, 3)
+        self.assertEqual(instance[0].id, 1)
+        self.assertEqual(instance[1].id, 2)
 
     def test_empty_file_rectangle(self):
         Rectangle.save_to_file(None)
@@ -80,7 +82,7 @@ class BaseTest_file(unittest.TestCase):
 
         self.assertEqual(len(instance), 0)
 
-    def test_save_load_file_square(self):
+    def test_save_file_square(self):
         obj = Square(6)
         obj1 = Square(25)
         obj2 = Square(15)
@@ -94,12 +96,15 @@ class BaseTest_file(unittest.TestCase):
             content = file.read()
             self.assertEqual(content, '[]')
 
+    def test_load_file_square(self):
+        obj1 = Square(10)
+        obj2 = Square(15)
         Square.save_to_file([obj1, obj2])
         instance = Square.load_from_file()
 
         self.assertEqual(len(instance), 2)
-        self.assertEqual(instance[0].id, 7)
-        self.assertEqual(instance[1].id, 8)
+        self.assertEqual(instance[0].id, 5)
+        self.assertEqual(instance[1].id, 6)
 
     def test_empty_file_square(self):
         Square.save_to_file(None)

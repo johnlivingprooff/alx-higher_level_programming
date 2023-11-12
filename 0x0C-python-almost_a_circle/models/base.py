@@ -16,14 +16,14 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    @staticmethod    
+    @staticmethod
     def to_json_string(list_dictionaries):
         import json
         if list_dictionaries is None:
             return "[]"
         str_rep = json.dumps(list_dictionaries)
         return str_rep
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
         filename = cls.__name__ + ".json"
@@ -52,13 +52,13 @@ class Base:
                     csv_val = [str(getattr(obj, attr)) for attr in attrs]
                     file.write(",".join(csv_val))
                     file.write("\n")
-    
+
     def from_json_string(json_string):
         import json
         if json_string is None:
             return []
         return json.loads(json_string)
-    
+
     @classmethod
     def create(cls, **dictionary):
         """returns an instance with all attributes already set"""
@@ -66,23 +66,23 @@ class Base:
             dummy_ins = cls(5, 5)
         elif cls.__name__ == "Square":
             dummy_ins = cls(5)
-        
+
         dummy_ins.update(**dictionary)
         return dummy_ins
-    
+
     @classmethod
     def load_from_file(cls):
         """returns a list of instances from json file"""
         import json
 
         filename = cls.__name__ + ".json"
-        
+
         try:
             with open(filename, "r") as file:
                 data = file.read()
                 if not data:
                     return []
-                
+
                 list_dicts = cls.from_json_string(data)
                 instances = [cls.create(**obj) for obj in list_dicts]
                 return instances
@@ -98,15 +98,19 @@ class Base:
                 cont = file.read()
                 if not cont:
                     return []
-                
+
                 list_objs = []
                 for row in cont.split("\n"):
                     args = row.split(",")
-                    if args[0]:  # Check if the first element is not an empty string
+                    if args[0]:
                         obj = cls(1, 1)
-                        obj.update(**{f"{k}": int(v) for k, v in enumerate(args)})
+                        obj.update(**{f"{k}": int(v)
+                                      for k, v in enumerate(args)})
                         list_objs.append(obj)
                 return list_objs
         except FileNotFoundError:
             return []
 
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        pass

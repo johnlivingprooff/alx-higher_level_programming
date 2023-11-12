@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module contains the base Class for
 Almost a Circle"""
+import turtle
 
 
 class Base:
@@ -113,4 +114,27 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        pass
+        shape = turtle.Turtle()
+
+        for rect in list_rectangles:
+            shape.pencolor("Blue")
+            shape.penup()
+            shape.goto(rect.x, rect.y)
+            shape.pendown()
+            for _ in range(2):
+                shape.forward(rect.width)
+                shape.right(90)
+                shape.forward(rect.height)
+                shape.right(90)
+
+        for sqr in list_squares:
+            shape.pencolor("orange")
+            shape.penup()
+            shape.goto(sqr.x, sqr.y)
+            shape.pendown()
+            for _ in range(4):
+                shape.forward(sqr.size)
+                shape.right(90)
+
+        shape.hideturtle()
+        turtle.done()

@@ -138,4 +138,3 @@ class Base:
                 shape.right(90)
 
         shape.hideturtle()
-        turtle.done()

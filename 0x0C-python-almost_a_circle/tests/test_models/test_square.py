@@ -71,6 +71,12 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square(5, None)
 
+    def test_area(self):
+        pass
+
+    def test_display(self):
+        pass
+
     def test_update_args(self):
         obj = Square(5, 4, 5, 10)
         obj.update()

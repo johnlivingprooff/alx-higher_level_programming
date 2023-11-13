@@ -45,7 +45,9 @@ class Base:
         """serializes a list of objs to CSV"""
         filename = cls.__name__ + ".csv"
         if cls.__name__ == "Rectangle":
-            attrs = ('id', 'width', 'height', 'x', 'y')
+            attrs = [attr for attr in vars(cls)
+                     if not callable(getattr(cls, attr))
+                     and not attr.startswith("__")]
         elif cls.__name__ == "Square":
             attrs = ('id', 'size', 'x', 'y')
         with open(filename, "w", encoding="utf-8") as file:

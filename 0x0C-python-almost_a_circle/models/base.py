@@ -11,6 +11,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """instantisation"""
         if id:
             self.id = id
         else:
@@ -19,6 +20,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """from dict to json_string"""
         import json
         if list_dictionaries is None:
             return "[]"
@@ -27,6 +29,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """saves instances to a json file"""
         filename = cls.__name__ + ".json"
 
         with open(filename, "w") as file:
@@ -55,6 +58,7 @@ class Base:
                     file.write("\n")
 
     def from_json_string(json_string):
+        """returns a loaded json str"""
         import json
         if json_string is None:
             return []
@@ -92,6 +96,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """csv resolved"""
         filename = f"{cls.__name__}.csv"
 
         try:
@@ -114,6 +119,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """draws a shape"""
         shape = turtle.Turtle()
 
         for rect in list_rectangles:

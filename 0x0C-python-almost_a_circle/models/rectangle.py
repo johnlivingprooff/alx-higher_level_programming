@@ -9,6 +9,7 @@ class Rectangle(Base):
     print_symbol = '#'
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """instantisation"""
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         if width <= 0:

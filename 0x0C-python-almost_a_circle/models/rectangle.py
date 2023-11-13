@@ -34,10 +34,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """gets width"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """sets width"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -47,10 +49,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """gets height"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """sets height"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -60,10 +64,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """gets x"""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """sets x"""
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -72,10 +78,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """gets y"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """sets y"""
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -102,6 +110,7 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
+        """str reps"""
         msg = "[Rectangle] ({}) {}/{} - {}/{}"\
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
         return msg
@@ -124,6 +133,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """returns a dictionary"""
         rect_dict = {"width": self.__width, "height": self.__height,
                      "x": self.__x, "y": self.__y, "id": self.id}
         return rect_dict

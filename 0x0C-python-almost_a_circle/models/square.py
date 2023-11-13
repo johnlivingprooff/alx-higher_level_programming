@@ -10,16 +10,19 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """str reps"""
         msg = "[Square] ({}) {}/{} - {}"\
             .format(self.id, self.x, self.y, self.height)
         return msg
 
     @property
     def size(self):
+        """gets width"""
         return self.width
 
     @size.setter
     def size(self, value):
+        """sets size"""
         self.width = value
         self.height = value
 
@@ -39,5 +42,6 @@ class Square(Rectangle):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """returns a dictionary"""
         sq_dict = {"size": self.size, "x": self.x, "y": self.y, "id": self.id}
         return sq_dict

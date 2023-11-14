@@ -103,19 +103,24 @@ class Base:
 
         try:
             with open(filename, "r", encoding="utf-8") as file:
-                cont = file.read()
-                if not cont:
+                content = file.read()
+                if not content:
                     return []
 
                 list_objs = []
-                for row in cont.split("\n"):
-                    args = row.split(",")
-                    if args[0]:
-                        obj = cls(1, 1)
-                        obj.update(**{f"{k}": int(v)
-                                      for k, v in enumerate(args)})
-                        list_objs.append(obj)
-                return list_objs
+                header = None
+            for row in content.split("\n"):
+                if not header:
+                    header = row.split(",")
+                    continue
+
+                args = row.split(",")
+                obj_dict = {header[i]: int(args[i])
+                            for i in range(len(header))}
+                obj = cls(**obj_dict)
+                list_objs.append(obj)
+
+            return list_objs
         except FileNotFoundError:
             return []
 

@@ -72,10 +72,12 @@ class TestSquare(unittest.TestCase):
             Square(5, None)
 
     def test_area(self):
-        pass
+        mark = Square(10, 5, 4)
+        self.assertEqual(100, mark.area())
 
     def test_display(self):
-        pass
+        with self.assertRaises(ValueError):
+            Square(0)
 
     def test_update_args(self):
         obj = Square(5, 4, 5, 10)

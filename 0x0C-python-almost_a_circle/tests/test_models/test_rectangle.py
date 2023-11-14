@@ -87,6 +87,10 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(10, 5, None)
 
+    def test_area(self):
+        mark = Rectangle(10, 10, 5, 4)
+        self.assertEqual(100, mark.area())
+
     def test_update_args(self):
         obj = Rectangle(10, 5, 4, 4, 2)
         obj.update()

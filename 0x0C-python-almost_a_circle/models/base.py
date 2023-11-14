@@ -49,7 +49,9 @@ class Base:
                      if not callable(getattr(cls, attr))
                      and not attr.startswith("__")]
         elif cls.__name__ == "Square":
-            attrs = ('id', 'size', 'x', 'y')
+            attrs = [attr for attr in vars(cls)
+                     if not callable(getattr(cls, attr))
+                     and not attr.startswith("__")]
         with open(filename, "w", encoding="utf-8") as file:
             if list_objs is None:
                 file.write("")
@@ -112,7 +114,7 @@ class Base:
                     args = row.split(",")
                     if args[0]:
                         obj = cls(1, 1)
-                        obj.update(**{f"{k}": int(v)
+                        obj.update(**{f"{k}": v
                                       for k, v in enumerate(args)})
                         list_objs.append(obj)
                 return list_objs

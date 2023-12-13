@@ -4,7 +4,7 @@
 
 -- Create the second_table if it doesn't exist
 
-CREATE TABLE IF NOT EXISTS ', @db_NAME, '.', @table_NAME, ' (
+CREATE TABLE IF NOT EXISTS second_table (
     id INT,
     name VARCHAR(256),
     score INT

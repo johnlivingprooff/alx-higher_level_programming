@@ -5,5 +5,5 @@
 -- Construct the query and execute it
 
 SELECT score, name
-FROM ', @db_NAME, '.', @table_NAME, '
+FROM second_table
 ORDER BY score DESC;

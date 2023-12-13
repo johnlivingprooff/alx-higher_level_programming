@@ -3,7 +3,7 @@
 
 -- Set the database name
 SET @db_NAME = ARGV(0);
-SET @table_NAME = 'first_table';
+SET @table_NAME = 'second_table';
 
 -- Create the second_table if it doesn't exist
 SET @create_query = CONCAT('

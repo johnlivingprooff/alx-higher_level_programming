@@ -4,10 +4,11 @@ const myArgs = process.argv.slice(2);
 if (myArgs.length === 0) {
   console.log(1);
 } else {
-  let max = 0; let i;
-  for (i = 0; i < myArgs.length; i++) {
-    if (parseInt(myArgs[i]) > max) {
-      max = parseInt(myArgs[i]);
+  let max = parseInt(myArgs[0]); // Initialize max with the first argument
+  for (let i = 1; i < myArgs.length; i++) {
+    const currentValue = parseInt(myArgs[i]);
+    if (!isNaN(currentValue) && currentValue > max) {
+      max = currentValue;
     }
   }
   console.log(max);

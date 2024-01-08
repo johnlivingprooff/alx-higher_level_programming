@@ -1,8 +1,8 @@
 #!/usr/bin/node
-function myFunc(x, theFunction) {
+(function(x, theFunction) {
   for (let i = 0; i < x; i++) {
     theFunction();
   }
-}
+})
 
 module.exports = { myFunc };

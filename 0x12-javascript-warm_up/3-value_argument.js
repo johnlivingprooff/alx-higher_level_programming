@@ -1,5 +1,4 @@
 #!/usr/bin/node
-// prints the first argument passed to it
 const argv = process.argv.slice(2);
 const argl = process.argv.length - 1;
 

@@ -16,8 +16,8 @@ if (myArgs.length === 0 || myArgs.length === 1) {
       if (currentValue > max) {
         secondMax = max;
         max = currentValue;
-      } else if (currentValue > secondMax && currentValue !== max){
-          secondMax = currentValue;
+      } else if (currentValue > secondMax && currentValue !== max) {
+        secondMax = currentValue;
       }
     }
   }

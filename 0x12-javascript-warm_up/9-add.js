@@ -5,6 +5,6 @@ function add (a, b) {
   return a + b;
 }
 
-let a = Number(args[0]); let b = Number(args[1]);
+const a = Number(args[0]); const b = Number(args[1]);
 const sumH = add(a, b);
 console.log(sumH);

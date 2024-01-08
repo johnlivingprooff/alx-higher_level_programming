@@ -5,11 +5,21 @@ if (myArgs.length === 0 || myArgs.length === 1) {
   console.log(0);
 } else {
   let max = parseInt(myArgs[0]); // Initialize max with the first argument
-  for (let i = 1; i < myArgs.length; i++) {
+  let secondMax = parseInt(myArgs[1]);
+  if (secondMax > max) {
+    [max, secondMax] = [secondMax, max];
+  }
+
+  for (let i = 2; i < myArgs.length; i++) {
     const currentValue = parseInt(myArgs[i]);
-    if (!isNaN(currentValue) && currentValue > max) {
-      max = currentValue;
+    if (!isNaN(currentValue)) {
+      if (currentValue > max) {
+        secondMax = max;
+        max = currentValue;
+      } else if (currentValue > secondMax && currentValue !== max){
+          secondMax = currentValue;
+      }
     }
   }
-  console.log(max);
+  console.log(secondMax);
 }

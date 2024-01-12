@@ -9,7 +9,9 @@ def lister(user, passw, database, argumnt):
     db = MySQLdb.connect(
         host="localhost", port=3306, user=user, passwd=passw, db=database)
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC", (argumnt + '%',))
+    cursor.execute(
+        "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC",
+        (argumnt + '%',))
     rows = cursor.fetchall()
 
     for row in rows:
@@ -23,6 +25,6 @@ if __name__ == "__main__":
     if len(sys.argv) != 5:
         sys.exit(1)
 
-    user, passw, database, argumnt = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
-    print(f"User: {user}, Password: {passw}, Database: {database}, Argument: {argumnt}")
+    user, passw = sys.argv[1], sys.argv[2]
+    database, argumnt = sys.argv[3], sys.argv[4]
     lister(user, passw, database, argumnt)

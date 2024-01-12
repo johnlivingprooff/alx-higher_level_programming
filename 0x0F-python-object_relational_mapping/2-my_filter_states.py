@@ -14,9 +14,7 @@ def lister(user, passw, database, argumnt):
     db = MySQLdb.connect(
         host="localhost", port=3306, user=user, passwd=passw, db=database)
     cursor = db.cursor()
-    cursor.execute(
-        "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC",
-        (argumnt,))
+    cursor.execute(query)
     rows = cursor.fetchall()
 
     for row in rows:

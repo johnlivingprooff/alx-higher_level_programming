@@ -10,3 +10,4 @@ test.py
 main.js
 sqlcmd.sql
 local.sql
+venv/

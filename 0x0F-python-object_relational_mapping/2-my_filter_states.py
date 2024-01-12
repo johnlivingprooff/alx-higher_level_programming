@@ -10,7 +10,7 @@ def lister(user, passw, database, argumnt):
         host="localhost", port=3306, user=user, passwd=passw, db=database)
     cursor = db.cursor()
     cursor.execute(
-        f"SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC",
+        "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC",
         (argumnt,))
     rows = cursor.fetchall()
 

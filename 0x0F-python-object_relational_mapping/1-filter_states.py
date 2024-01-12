@@ -24,5 +24,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     user, passw, database = sys.argv[1], sys.argv[2], sys.argv[3]
-    # print(f"User: {user}, Password: {passw}, Database: {database}")
     lister(user, passw, database)

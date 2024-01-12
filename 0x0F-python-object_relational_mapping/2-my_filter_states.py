@@ -8,6 +8,9 @@ import sys
 
 def lister(user, passw, database, argumnt):
     """the function to connect to and list the database"""
+    query = """
+    SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC
+    """.format(argumnt)
     db = MySQLdb.connect(
         host="localhost", port=3306, user=user, passwd=passw, db=database)
     cursor = db.cursor()

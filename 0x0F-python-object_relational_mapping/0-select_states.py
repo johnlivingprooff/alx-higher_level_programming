@@ -6,7 +6,7 @@ import sys
 
 if __name__ == "__main__":
     user, passw, database = sys.argv[1], sys.argv[2], sys.argv[3]
-    query = """SELECT * FROM states ORDER BY id;"""
+    query = """SELECT * FROM states ORDER BY id ASC;"""
     dbase = MySQLdb.connect(
         host="localhost",
         port=3306, user=user, passwd=passw,

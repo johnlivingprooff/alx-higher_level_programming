@@ -8,6 +8,5 @@ my_first_file.txt
 draw.py
 test.py
 main.js
-sqlcmd.sql
-local.sql
+*.sql
 venv/

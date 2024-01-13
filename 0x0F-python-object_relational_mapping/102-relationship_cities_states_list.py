@@ -23,7 +23,7 @@ def core(user, passw, database):
     cities = sesh.query(City).order_by(City.id).all()
     for city in cities:
         print(f"{city.id}: {city.name} -> {city.state.name}")
-    
+
     sesh.close()
 
 

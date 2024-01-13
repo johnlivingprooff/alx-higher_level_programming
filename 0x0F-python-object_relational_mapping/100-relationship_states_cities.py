@@ -27,7 +27,6 @@ def core(user, passw, database):
     sesh.commit()
     sesh.close()
 
-    
 
 if __name__ == "__main__":
     if len(sys.argv) == 4:

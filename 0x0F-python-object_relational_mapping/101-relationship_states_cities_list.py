@@ -26,7 +26,7 @@ def core(user, passw, database):
         print(f"{state.id}: {state.name}")
         for city in state.cities:
             print(f"    {city.id}: {city.name}")
-    
+
     sesh.close()
 
 

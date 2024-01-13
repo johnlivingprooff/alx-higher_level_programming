@@ -19,14 +19,13 @@ def core(user, passw, database, name):
     Session = sessionmaker(bind=engine)
     sesh = Session()
 
-    states = sesh.query(State).filter(State.name == name)\
-        .order_by(State.id).all()
+    state = sesh.query(State).filter(State.name == str(name))\
+        .order_by(State.id).scalar()
 
-    for state in states:
-        if state:
-            print(f"{state.id}")
-        else:
-            print("Not found")
+    if state:
+        print(f"{state.id}")
+    else:
+        print("Not found")
 
     sesh.close()
 

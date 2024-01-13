@@ -20,12 +20,9 @@ def core(user, passw, database):
     Session = sessionmaker(bind=engine)
     sesh = Session()
 
-    table = sesh.query(State).order_by(City.id).all()
-
-    for state in table:
-        print(f"{state.id}: {state.name}")
-        for city in state.cities:
-            print(f"    {city.id}: {city.name}")
+    cities = sesh.query(City).order_by(City.id).all()
+    for city in cities:
+        print(f"{city.id}: {city.name} -> {city.state.name}")
     
     sesh.close()
 

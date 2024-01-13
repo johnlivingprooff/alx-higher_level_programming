@@ -19,7 +19,7 @@ def core(user, passw, database):
 
     Session = sessionmaker(bind=engine)
     sesh = Session()
-
+    Base.metadata.create_all(engine)
     table = sesh.query(State).order_by(State.id).all()
 
     for state in table:

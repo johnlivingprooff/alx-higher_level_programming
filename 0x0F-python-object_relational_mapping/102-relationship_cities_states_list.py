@@ -20,7 +20,7 @@ def core(user, passw, database):
     Session = sessionmaker(bind=engine)
     sesh = Session()
 
-    table = sesh.query(State).order_by(State.id).all()
+    table = sesh.query(State).order_by(City.id).all()
 
     for state in table:
         print(f"{state.id}: {state.name}")

@@ -18,7 +18,7 @@ def lister(user, passw, database, name):
     dbase_conn = MySQLdb.connect(
         host="localhost", port=3306, user=user, passwd=passw, db=database)
     mouse = dbase_conn.cursor()
-    mouse.execute(query,(name,))
+    mouse.execute(query, (name,))
 
     rows = mouse.fetchall()
     cities = [row[1] for row in rows]

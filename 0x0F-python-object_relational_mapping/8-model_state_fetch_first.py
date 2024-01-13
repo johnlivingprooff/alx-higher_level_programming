@@ -24,6 +24,8 @@ def core(user, passw, database):
     # print(f"{states[0].id}: {states[0].name}")
     if state:
         print(f"{state.id}: {state.name}")
+    else:
+        print("Nothing")
 
     sesh.close()
 

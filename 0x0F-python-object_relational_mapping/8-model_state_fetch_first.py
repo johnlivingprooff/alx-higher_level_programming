@@ -22,6 +22,8 @@ def core(user, passw, database):
     state = sesh.query(State).order_by(State.id).first()
     # for state in states:
     # print(f"{states[0].id}: {states[0].name}")
+    if state:
+        print(f"{state.id}: {state.name}")
 
     sesh.close()
 

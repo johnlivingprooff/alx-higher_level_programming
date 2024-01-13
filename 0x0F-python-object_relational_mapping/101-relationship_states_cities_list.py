@@ -23,9 +23,9 @@ def core(user, passw, database):
     table = sesh.query(State).order_by(State.id).all()
 
     for state in table:
-        print(f"{state.id}: {state.name}")
+        print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print(f"\t{city.id}: {city.name}")
+            print("\t{}: {}".format(city.id, city.name))
 
     sesh.close()
 

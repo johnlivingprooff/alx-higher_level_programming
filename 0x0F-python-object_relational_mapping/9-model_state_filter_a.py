@@ -19,7 +19,8 @@ def core(user, passw, database):
     Session = sessionmaker(bind=engine)
     sesh = Session()
 
-    states = sesh.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
+    states = sesh.query(State).filter(State.name.like('%a%'))\
+        .order_by(State.id).all()
     for state in states:
         print(f"{state.id}: {state.name}")
 

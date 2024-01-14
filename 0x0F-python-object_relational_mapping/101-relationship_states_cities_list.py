@@ -11,18 +11,17 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    if len(argv) == 4:
-        dbase_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.\
-                    format(argv[1], argv[2], argv[3])
-        engine = create_engine(dbase_uri, pool_pre_ping=True)
+    dbase_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.\
+                format(argv[1], argv[2], argv[3])
+    engine = create_engine(dbase_uri, pool_pre_ping=True)
+    Base.metadata.create_all(engine)
 
-        Session = sessionmaker(bind=engine)
-        sesh = Session()
+    Session = sessionmaker(bind=engine)
+    sesh = Session()
 
-        for state in sesh.query(State).order_by(State.id).all():
-            print("{}: {}".format(state.id, state.name))
-            for city in state.cities:
-                print("\t{}: {}".format(city.id, city.name))
+    for state in sesh.query(State).order_by(State.id):
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))
 
-        sesh.close()
-            
+    sesh.close()

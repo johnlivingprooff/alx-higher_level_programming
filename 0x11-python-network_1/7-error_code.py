@@ -9,5 +9,5 @@ if __name__ == "__main__":
         response = requests.get(argv[1])
         response.raise_for_status()
         print(response.text)
-    except requests.HTTPError as e:
-        print("Error code: {}".format(e.response.status_code))
+    except requests.HTTPError:
+        print("Error code: {}".format(response.status_code))

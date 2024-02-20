@@ -10,7 +10,7 @@ request.get(url, (error, response, body) => {
     let n = 0;
 
     data.results.forEach((film) => {
-      if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
+      if (film.characters.includes('18')) {
         n++;
       }
     });

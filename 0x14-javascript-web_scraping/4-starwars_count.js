@@ -2,7 +2,7 @@
 const request = require('request');
 const url = process.argv[2];
 
-request.get(url, (error, body) => {
+request.get(url, (error, response, body) => {
   if (error) {
     console.error(error);
   } else {
@@ -10,7 +10,7 @@ request.get(url, (error, body) => {
     let n = 0;
 
     data.results.forEach((film) => {
-      if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18')) {
+      if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
         n++;
       }
     });

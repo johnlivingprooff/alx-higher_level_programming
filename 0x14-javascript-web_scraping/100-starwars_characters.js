@@ -9,14 +9,15 @@ request.get(url, (error, response, body) => {
     console.error(error);
   } else {
     const data = JSON.parse(body);
+    const characters = data.characters;
 
-    data.characters.forEach(character => {
-      request.get(character, (error, response, body) => {
+    characters.forEach(characterUrl => {
+      request.get(characterUrl, (error, response, body) => {
         if (error) {
           console.error(error);
         } else {
-          const charName = JSON.parse(body);
-          console.log(charName.name);
+          const characterData = JSON.parse(body);
+          console.log(characterData.name);
         }
       });
     });

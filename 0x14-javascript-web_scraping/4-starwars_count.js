@@ -3,17 +3,15 @@ const request = require('request');
 const url = process.argv[2];
 
 request.get(url, (error, response, body) => {
-  if (error) {
-    console.error(error);
-  } else {
-    const data = JSON.parse(body);
-    let n = 0;
+  if (error) return console.error(error);
 
-    data.results.forEach((film) => {
-      if (film.characters.includes('18')) {
-        n++;
-      }
-    });
-    console.log(n);
-  }
+  const data = JSON.parse(body);
+  let count = 0;
+
+  data.results.forEach(film => {
+    if (film.characters.includes('18')) {
+      count++;
+    }
+  });
+  console.log(count);
 });

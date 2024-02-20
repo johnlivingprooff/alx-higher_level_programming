@@ -18,7 +18,8 @@ request.get(url, (error, response, body) => {
         }
       }
     });
-    const stringed = JSON.stringify(completedTasks, null, 2);
-    console.log(stringed);
+    if (Object.keys(completedTasks).length) {
+        console.log(completedTasks);
+      }
   }
 });

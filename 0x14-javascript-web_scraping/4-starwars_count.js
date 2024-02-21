@@ -9,9 +9,12 @@ request.get(url, (error, response, body) => {
   let count = 0;
 
   data.results.forEach(film => {
-    if (film.characters.includes('18')) {
-      count++;
-    }
+    const filmChar = film.characters;
+    filmChar.forEach(char => {
+      if (char.includes('18')) {
+        count++;
+      }
+    });
   });
   console.log(count);
 });

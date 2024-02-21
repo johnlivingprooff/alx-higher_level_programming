@@ -10,12 +10,12 @@ request.get(url, (error, response, body) => {
     const completedTasks = {};
 
     todos.forEach(todo => {
-      if (todo.completed) {
+      const complete = todo.completed;
+      if (complete) {
         completedTasks[todo.userId] = completedTasks[todo.userId] ? completedTasks[todo.userId] + 1 : 1;
       }
     });
-    if (Object.keys(completedTasks).length) {
-      console.log(completedTasks);
-    }
+
+    console.log(completedTasks);
   }
 });

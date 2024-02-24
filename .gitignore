@@ -10,3 +10,4 @@ test.py
 main.js
 *.sql
 venv/
+test_html.html

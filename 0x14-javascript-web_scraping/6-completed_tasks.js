@@ -15,7 +15,6 @@ request.get(url, (error, response, body) => {
         completedTasks[todo.userId] = completedTasks[todo.userId] ? completedTasks[todo.userId] + 1 : 1;
       }
     });
-
     console.log(completedTasks);
   }
 });

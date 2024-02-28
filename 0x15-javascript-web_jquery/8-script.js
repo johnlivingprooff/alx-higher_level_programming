@@ -6,4 +6,4 @@ fetch('https://swapi-api.alx-tools.com/api/films/?format=json')
     movies.results.forEach(movie => {
       $('#list_movies').append(`<li>${movie.title}</li>`);
     });
-  });
+  }); // alx-task
